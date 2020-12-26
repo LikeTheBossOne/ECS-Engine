@@ -13,5 +13,85 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{7665fc9e-c6e9-425b-8e0c-7096cfcd089c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\ECS">
+      <UniqueIdentifier>{529fdbe3-0949-456d-bff6-462e8742d84e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\ECS\Util">
+      <UniqueIdentifier>{7ceffc5e-72e5-458d-8453-37b15591661d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\ECS\Entity">
+      <UniqueIdentifier>{39774c5f-f17c-470c-818e-538bdc544ce3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\ECS\Component">
+      <UniqueIdentifier>{c7089ec3-aabf-4200-b923-16fdcf9a7b76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\ECS\System">
+      <UniqueIdentifier>{927afb0f-f745-40d0-8dbe-17df8c0dcdc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\ECS\Event">
+      <UniqueIdentifier>{d3b25c5b-f1b4-459f-a008-7e1b6c7dd7cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{ad55a775-b95d-429c-b3f0-f97c8584e7a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems">
+      <UniqueIdentifier>{e2affe52-b4ce-4906-9ede-ecf93875430c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Types.h">
+      <Filter>Header Files\Engine\ECS\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Header Files\Engine\ECS\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentManager.h">
+      <Filter>Header Files\Engine\ECS\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="API.h">
+      <Filter>Header Files\Engine\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Header Files\Engine\ECS\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemManager.h">
+      <Filter>Header Files\Engine\ECS\System</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentArray.h">
+      <Filter>Header Files\Engine\ECS\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header Files\Engine\ECS\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Header Files\Engine\ECS\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControlSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros.h">
+      <Filter>Header Files\Engine\ECS\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>Header Files\Engine\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEngine.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
