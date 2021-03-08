@@ -26,7 +26,7 @@ public:
 			transform.position_y += rigidBody.velocity_y * dt;
 			transform.position_z += rigidBody.velocity_z * dt;
 
-			// std::cout << entity << ": " << transform.position_x << ", " << transform.position_y << ", " << transform.position_z << std::endl;
+			std::cout << entity << ": " << transform.position_x << ", " << transform.position_y << ", " << transform.position_z << std::endl;
 		}
 	}
 };
