@@ -1,4 +1,4 @@
-# 3DGameEngine
+# ECS Engine
 
 ## Connect GLEW and FreeGlut
 
