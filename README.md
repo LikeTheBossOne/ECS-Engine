@@ -1,6 +1,6 @@
 # ECS Engine
 
-## Connect GLEW and FreeGlut
+## Connect GLFW and GLAD
 
 Currently not available. Graphics are not supported yet in this proof-of-concept.
 
