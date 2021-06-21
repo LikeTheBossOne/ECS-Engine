@@ -46,6 +46,9 @@
     <Filter Include="Header Files\Graphics\Downloaded">
       <UniqueIdentifier>{f34b4d7d-8a66-49b9-a1a5-0840131bdcd4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphics\Enums">
+      <UniqueIdentifier>{218b644d-c2de-4e4d-9d8b-4b398f6284ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Types.h">
@@ -134,6 +137,12 @@
     </ClInclude>
     <ClInclude Include="API.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Header Files\Graphics\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

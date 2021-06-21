@@ -5,7 +5,7 @@
 
 // ECS
 using Entity = std::uint64_t;
-const Entity MAX_ENTITIES = 5000;
+const Entity MAX_ENTITIES = 10000;
 using ComponentType = std::uint8_t;
 const ComponentType MAX_COMPONENTS = 32;
 using Signature = std::bitset<MAX_COMPONENTS>;

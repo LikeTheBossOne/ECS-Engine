@@ -3,13 +3,7 @@
 #include <glm/mat4x2.hpp>
 #include <glm/ext/matrix_transform.hpp>
 
-// Defines several possible options for camera movement. Used as abstraction to stay away from window-system specific input methods
-enum class BOSSENGINE_API Camera_Movement {
-    FORWARD,
-    BACKWARD,
-    LEFT,
-    RIGHT
-};
+#include "Enums.h"
 
 class BOSSENGINE_API Camera
 {

@@ -16,23 +16,102 @@
 #include "load_stbi_image.h"
 #include "Transform.h"
 #include "Camera.h"
+#include "Mesh.h"
 
-void setupVertices(unsigned int *VAO, unsigned int *VBO, float vertices[], int verticesSize)
+enum Direction
+{
+	NORTH = 0,
+	SOUTH,
+	EAST,
+	WEST,
+	UP,
+	DOWN
+};
+
+const int FACE_INDICES[] = { 1, 0, 3, 1, 3, 2 };
+const int UNIQUE_INDICES[] = { 1, 0, 5, 2 };
+const int CUBE_INDICES[] = {
+	1, 0, 3, 1, 3, 2, // north (-z)
+	4, 5, 6, 4, 6, 7, // south (+z)
+	5, 1, 2, 5, 2, 6, // east (+x)
+	0, 4, 7, 0, 7, 3, // west (-x)
+	2, 3, 7, 2, 7, 6, // top (+y)
+	5, 4, 0, 5, 0, 1, // bottom (-y)
+};
+
+const float CUBE_VERTICES[] = {
+	0, 0, 0,
+	1, 0, 0,
+	1, 1, 0,
+	0, 1, 0,
+
+	0, 0, 1,
+	1, 0, 1,
+	1, 1, 1,
+	0, 1, 1
+};
+
+const float CUBE_UVS[] = {
+	1, 0,
+	0, 0,
+	0, 1,
+	1, 1
+};
+
+void setupVertices(unsigned int *VAO, unsigned int *VBO, unsigned int* EBO, float vertices[], int verticesSize, unsigned int indices[], int indicesSize)
 {
 	glGenVertexArrays(1, VAO);
 	glGenBuffers(1, VBO);
+	glGenBuffers(1, EBO);
 
 	glBindVertexArray(*VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, *VBO);
-	glBufferData(GL_ARRAY_BUFFER, verticesSize * sizeof(float), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, verticesSize, vertices, GL_STATIC_DRAW);
 
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicesSize, indices, GL_STATIC_DRAW);
+	
 	// position attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	// texture coord attribute
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
+}
+
+void setupBuffers(unsigned int* VAO)
+{
+	unsigned int VBO;
+	unsigned int EBO;
+
+	float blockVertices[20 * 6];
+	int vertIdx = 0;
+	unsigned int blockIndices[6 * 6];
+	int blockIdx = 0;
+	int vertCount = 0;
+	for (int i = 0; i < 6; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			const float* vertex = &CUBE_VERTICES[CUBE_INDICES[(i * 6) + UNIQUE_INDICES[j]] * 3];
+			blockVertices[vertIdx++] = vertex[0];
+			blockVertices[vertIdx++] = vertex[1];
+			blockVertices[vertIdx++] = vertex[2];
+			// texture
+			blockVertices[vertIdx++] = CUBE_UVS[(j * 2) + 0];
+			blockVertices[vertIdx++] = CUBE_UVS[(j * 2) + 1];
+		}
+
+		for (int j = 0; j < 6; j++)
+		{
+			blockIndices[blockIdx++] = vertCount + FACE_INDICES[j];
+		}
+
+		vertCount += 4;
+	}
+
+	setupVertices(VAO, &VBO, &EBO, blockVertices, sizeof(blockVertices), blockIndices, sizeof(blockIndices));
 }
 
 void LoadTexture(const char* pathToTexture, unsigned int* textureID, int rgba, int glRepeat)
@@ -119,50 +198,54 @@ int main()
 
 
 	// Setup Renderable entities
-	Entity e = ECS::CreateEntity();
 
 	unsigned int texture;
 	LoadTexture("Resources/textures/block/dirt.png", &texture, GL_RGBA, GL_CLAMP_TO_EDGE);
 
 	unsigned int VAO;
-	unsigned int VBO;
-	float vertices[] = {
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-	};
-
-	setupVertices(&VAO, &VBO, vertices, sizeof(vertices) / sizeof(float));
+	setupBuffers(&VAO);
 
 	Shader* shader = new Shader(R"(Shaders\vertex1.vs)", R"(Shaders\fragment1.fs)");
 	shader->Use();
 	shader->UniSetInt("texture1", 0);
+
 	
-	Renderable r
+	for (int x = 0; x < 16; x++)
 	{
-		texture,
-		VAO,
-		shader
-	};
-	
-	ECS::AddComponent(e, r);
-	ECS::AddComponent(e, 
-		Transform
+		for (int z = 0; z < 16; z++)
 		{
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0
+			for (int y = 0; y < 16; y++)
+			{
+				Entity e = ECS::CreateEntity();
+
+				Renderable r
+				{
+					texture,
+					VAO,
+					shader
+				};
+
+				ECS::AddComponent(e, r);
+				ECS::AddComponent(e,
+					Transform
+					{
+						(float)x,
+						(float)y,
+						(float)z,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					}
+				);
+			}
 		}
-	);
+		
+	}
+	
+	
 	
 #pragma endregion
 

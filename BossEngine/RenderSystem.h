@@ -41,7 +41,7 @@ public:
 			
 			shader->UniSetMat4f("model", model);
 
-			glDrawArrays(GL_TRIANGLES, 0, 6);
+			glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 		}
 	}
 };
