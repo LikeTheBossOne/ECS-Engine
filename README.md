@@ -1,8 +1,9 @@
 # ECS Engine
 
-## Connect GLEW and FreeGlut
+## Connect GLFW, GLAD, and GLM
 
-Currently not available. Graphics are not supported yet in this proof-of-concept.
+Graphics is a Work-In-Progress
+Includes are in the repository. You will need to link the associated DLLs.
 
 ## Set Preprocessor
 
