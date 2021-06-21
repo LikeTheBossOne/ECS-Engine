@@ -5,7 +5,7 @@
 #include "System.h"
 #include <cassert>
 
-class ECS_API SystemManager
+class BOSSENGINE_API SystemManager
 {
 private:
 	std::unordered_map<const char*, Signature> _signatures{};

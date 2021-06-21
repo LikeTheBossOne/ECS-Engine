@@ -1,12 +1,14 @@
 #pragma once
-// #include "ECS.h"
-//
-// class BossEngine
-// {
-// public:
-// 	static ECS* _ecs;
-// public:
-// 	static ECS* GetECS() { return _ecs; }
-// };
-//
-// ECS* BossEngine::_ecs = new ECS();
+#include "GraphicsManager.h"
+
+/*
+ * This is the entrypoint for a game programmer. They should not interact with any engine systems other than the ones defined in this.
+ */
+class BOSSENGINE_API BossEngine
+{
+public:
+	static void Start()
+	{
+		GraphicsManager::Start();
+	}
+};

@@ -1,0 +1,3 @@
+#define USYSTEM(sys, __VA_ARGS__) public: void __INIT_SYSTEM() { Signature signature; PP_FOR_EACH(ECS_SYSTEM, __VA_ARGS__) ECS::SetSystemSignature<sys>(signature); Init(); }
+#define ECS_API __declspec(dllexport)
+#define ECS_API

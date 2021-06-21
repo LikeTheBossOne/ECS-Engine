@@ -3,7 +3,7 @@
 #include "API.h"
 #include <any>
 
-class ECS_API Event
+class BOSSENGINE_API Event
 {
 public:
 	

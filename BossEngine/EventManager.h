@@ -4,7 +4,7 @@
 #include "Event.h"
 #include <functional>
 
-class ECS_API EventManager
+class BOSSENGINE_API EventManager
 {
 public:
 	

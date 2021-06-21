@@ -4,7 +4,7 @@
 #include <array>
 #include <cassert>
 
-class ECS_API EntityManager
+class BOSSENGINE_API EntityManager
 {
 private:
 	std::queue<Entity> _availableEntities{};

@@ -5,7 +5,10 @@
 #include "ECS.h"
 #include <iostream>
 
-class ECS_API PlayerControlSystem : public System
+#include "Player.h"
+#include "Transform.h"
+
+class BOSSENGINE_API PlayerControlSystem : public System
 {
 	USYSTEM(PlayerControlSystem, Player, Transform)
 public:

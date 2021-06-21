@@ -4,7 +4,7 @@
 #include <cassert>
 #include <unordered_map>
 
-class ECS_API IComponentArray
+class BOSSENGINE_API IComponentArray
 {
 public:
 	virtual ~IComponentArray() = default;
@@ -16,7 +16,7 @@ public:
  * For each component, there will be an array of components for each entity with that component
  */
 template<typename T>
-class ECS_API ComponentArray : public IComponentArray
+class BOSSENGINE_API ComponentArray : public IComponentArray
 {
 private:
 	std::array<T, MAX_ENTITIES> _componentArray{};

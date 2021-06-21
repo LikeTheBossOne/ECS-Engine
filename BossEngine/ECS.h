@@ -6,13 +6,15 @@
 #include "EntityManager.h"
 
 
-class ECS_API ECS
+class BOSSENGINE_API ECS
 {
 private:
 	static std::unique_ptr<ComponentManager> _componentManager;
 	static std::unique_ptr<EntityManager> _entityManager;
 	static std::unique_ptr<EventManager> _eventManager;
 	static std::unique_ptr<SystemManager> _systemManager;
+
+public:
 	
 public:
 	
@@ -23,7 +25,7 @@ public:
 	}
 
 	static void DestroyEntity(Entity entity)
-	{
+	{	
 		_entityManager->DestroyEntity(entity);
 
 		_componentManager->EntityDestroyed(entity);
@@ -109,6 +111,5 @@ public:
 
 std::unique_ptr<ComponentManager> ECS::_componentManager = std::make_unique<ComponentManager>();
 std::unique_ptr<EntityManager> ECS::_entityManager = std::make_unique<EntityManager>();
-std::unique_ptr<EventManager> ECS::_eventManager = std::make_unique<EventManager>();
 std::unique_ptr<SystemManager> ECS::_systemManager = std::make_unique<SystemManager>();
-
+std::unique_ptr<EventManager> ECS::_eventManager = std::make_unique<EventManager>();

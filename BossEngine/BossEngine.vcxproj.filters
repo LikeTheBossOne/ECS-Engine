@@ -40,6 +40,12 @@
     <Filter Include="Header Files\Systems">
       <UniqueIdentifier>{e2affe52-b4ce-4906-9ede-ecf93875430c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphics">
+      <UniqueIdentifier>{b98ee210-1ff1-4b7a-8c61-097c455ccb92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\Downloaded">
+      <UniqueIdentifier>{f34b4d7d-8a66-49b9-a1a5-0840131bdcd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Types.h">
@@ -50,9 +56,6 @@
     </ClInclude>
     <ClInclude Include="ComponentManager.h">
       <Filter>Header Files\Engine\ECS\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="API.h">
-      <Filter>Header Files\Engine\ECS</Filter>
     </ClInclude>
     <ClInclude Include="System.h">
       <Filter>Header Files\Engine\ECS\System</Filter>
@@ -87,11 +90,59 @@
     <ClInclude Include="Macros.h">
       <Filter>Header Files\Engine\ECS\Util</Filter>
     </ClInclude>
-    <ClInclude Include="ECS.h">
-      <Filter>Header Files\Engine\ECS</Filter>
-    </ClInclude>
     <ClInclude Include="BossEngine.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderable.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="load_stb_image.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files\Graphics\Downloaded</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsManager.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PreRenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="FinalizeRenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovementSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Exports.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>Header Files\Engine\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="API.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IncludesSheet.props" />
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="glad.c">
+      <Filter>Header Files\Graphics\Downloaded</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

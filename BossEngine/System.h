@@ -2,7 +2,7 @@
 #include "API.h"
 #include <set>
 
-class ECS_API System
+class BOSSENGINE_API System
 {
 	virtual void Init() = 0;
 public:

@@ -6,7 +6,7 @@
 #include "ComponentArray.h"
 #include <memory>
 
-class ECS_API ComponentManager
+class BOSSENGINE_API ComponentManager
 {
 	
 private:
