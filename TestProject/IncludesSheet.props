@@ -2,12 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <RepoRoot>E:\source\repos\3DGameEngine</RepoRoot>
-    <VSDev>E:\vsdev</VSDev>
+    <RepoRoot>C:\Users\Brendan\source\repos\ECS-Engine</RepoRoot>
+    <VSDev>C:\vsdev</VSDev>
   </PropertyGroup>
-  <PropertyGroup>
-    <_PropertySheetDisplayName>IncludesSheet</_PropertySheetDisplayName>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup />
   <ItemGroup>
     <BuildMacro Include="RepoRoot">

@@ -22,9 +22,6 @@
     <Filter Include="Source Files\Systems">
       <UniqueIdentifier>{81857230-ffd0-44d4-b92e-6e2594254b35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components">
-      <UniqueIdentifier>{55295b98-1fb2-404f-ba7f-fc19a6daf8ce}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\enums">
       <UniqueIdentifier>{0528178b-9d35-4309-83ef-727a22cf2db5}</UniqueIdentifier>
     </Filter>
@@ -32,9 +29,6 @@
   <ItemGroup>
     <ClCompile Include="TestProject.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ChunkRenderSystem.cpp">
-      <Filter>Source Files\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,12 +38,6 @@
     <ClInclude Include="stbi_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ChunkComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Direction.h">
-      <Filter>Header Files\enums</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\fragment1.fs">
@@ -58,5 +46,6 @@
     <None Include="Shaders\vertex1.vs">
       <Filter>Source Files\Shaders</Filter>
     </None>
+    <None Include="IncludesSheet.props" />
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@
 class BOSSENGINE_API Shader
 {
 public:
-	unsigned int ID;
+	unsigned int id;
 
 	Shader(const char* vertexPath, const char* fragmentPath)
 	{
@@ -79,15 +79,15 @@ public:
 		}
 
 
-		ID = glCreateProgram();
-		glAttachShader(ID, vertex);
-		glAttachShader(ID, fragment);
-		glLinkProgram(ID);
+		id = glCreateProgram();
+		glAttachShader(id, vertex);
+		glAttachShader(id, fragment);
+		glLinkProgram(id);
 		// print linking errors if any
-		glGetProgramiv(ID, GL_LINK_STATUS, &success);
+		glGetProgramiv(id, GL_LINK_STATUS, &success);
 		if (!success)
 		{
-			glGetProgramInfoLog(ID, 512, NULL, infoLog);
+			glGetProgramInfoLog(id, 512, NULL, infoLog);
 			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" <<
 				infoLog << std::endl;
 		}
@@ -99,26 +99,26 @@ public:
 
 	void Use()
 	{
-		glUseProgram(ID);
+		glUseProgram(id);
 	}
 
 	void UniSetBool(const std::string& name, bool value)
 	{
-		glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+		glUniform1i(glGetUniformLocation(id, name.c_str()), (int)value);
 	}
 
 	void UniSetInt(const std::string& name, int value)
 	{
-		glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+		glUniform1i(glGetUniformLocation(id, name.c_str()), (int)value);
 	}
 
 	void UniSetFloat(const std::string& name, float value)
 	{
-		glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+		glUniform1f(glGetUniformLocation(id, name.c_str()), value);
 	}
 
 	void UniSetMat4f(const std::string& name, glm::mat4 value)
 	{
-		glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(value));
+		glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, glm::value_ptr(value));
 	}
 };

@@ -15,9 +15,8 @@
 #include "RigidBody.h"
 #include "load_stbi_image.h"
 #include "Transform.h"
-#include "ChunkComponent.h"
-#include "ChunkRenderSystem.h"
 #include "Mesh.h"
+#include "ChunkRenderSystem.h"
 
 const int FACE_INDICES[] = { 1, 0, 3, 1, 3, 2 };
 const int UNIQUE_INDICES[] = { 1, 0, 5, 2 };
@@ -140,7 +139,7 @@ int main()
     ECS::RegisterComponent<Transform>();
 	ECS::RegisterComponent<RigidBody>();
 	ECS::RegisterComponent<Renderable>();
-	//ECS::RegisterComponent<ChunkComponent>();
+	ECS::RegisterComponent<ChunkComponent>();
 
 	// Initialize Systems
 	auto physicsSystem = ECS::RegisterSystem<PhysicsSystem>();
@@ -155,8 +154,8 @@ int main()
 	auto renderSystem = ECS::RegisterSystem<RenderSystem>();
 	renderSystem->__INIT_SYSTEM();
 
-	//auto chunkRenderSystem = ECS::RegisterSystem<ChunkRenderSystem>();
-	//chunkRenderSystem->__INIT_SYSTEM();
+	auto chunkRenderSystem = ECS::RegisterSystem<ChunkRenderSystem>();
+	chunkRenderSystem->__INIT_SYSTEM();
 	
 	auto finalRenderSystem = ECS::RegisterSystem<FinalizeRenderSystem>();
 	finalRenderSystem->__INIT_SYSTEM();
@@ -204,7 +203,7 @@ int main()
 	shader->Use();
 	shader->UniSetInt("texture1", 0);
 
-	/*Entity e = ECS::CreateEntity();
+	Entity e = ECS::CreateEntity();
 
 	unsigned int* data;
 	data = new unsigned int[CHUNK_VOLUME];
@@ -221,7 +220,7 @@ int main()
 			VAO,
 			data
 		}
-	);*/
+	);
 	
 	/*for (int x = 0; x < 16; x++)
 	{
@@ -291,8 +290,9 @@ int main()
 		physicsSystem->Update(dt);
 
 		// Render
-		renderSystem->Update(dt);
-
+		//renderSystem->Update(dt);
+		chunkRenderSystem->Update(dt);
+		
 		// Finalize Render
 		finalRenderSystem->Update(dt);
 		

@@ -114,7 +114,7 @@ private:
 };
 
 GLFWwindow* GraphicsManager::_window = nullptr;
-std::shared_ptr<Camera> GraphicsManager::_mainCamera = std::make_shared<Camera>(glm::vec3(0, 0, 10.f));
+std::shared_ptr<Camera> GraphicsManager::_mainCamera = std::make_shared<Camera>(glm::vec3(10, 10, 20.f));
 float GraphicsManager::_lastX = 0.0f;
 float GraphicsManager::_lastY = 0.0f;
 bool GraphicsManager::_firstMouse = true;
