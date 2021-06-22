@@ -166,9 +166,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TestProject.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="load_stbi_image.h" />
     <ClInclude Include="stbi_image.h" />
   </ItemGroup>
@@ -182,6 +179,9 @@
       <Project>{0102df3d-41bd-4cdd-9649-d66735752c82}</Project>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TestProject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

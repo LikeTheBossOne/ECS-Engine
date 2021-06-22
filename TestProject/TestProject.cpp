@@ -15,38 +15,15 @@
 #include "RigidBody.h"
 #include "load_stbi_image.h"
 #include "Transform.h"
-#include "Mesh.h"
 #include "ChunkRenderSystem.h"
 
-const int FACE_INDICES[] = { 1, 0, 3, 1, 3, 2 };
-const int UNIQUE_INDICES[] = { 1, 0, 5, 2 };
-const int CUBE_INDICES[] = {
-	1, 0, 3, 1, 3, 2, // north (-z)
-	4, 5, 6, 4, 6, 7, // south (+z)
-	5, 1, 2, 5, 2, 6, // east (+x)
-	0, 4, 7, 0, 7, 3, // west (-x)
-	2, 3, 7, 2, 7, 6, // top (+y)
-	5, 4, 0, 5, 0, 1, // bottom (-y)
-};
 
-const float CUBE_VERTICES[] = {
-	0, 0, 0,
-	1, 0, 0,
-	1, 1, 0,
-	0, 1, 0,
-
-	0, 0, 1,
-	1, 0, 1,
-	1, 1, 1,
-	0, 1, 1
-};
-
-const float CUBE_UVS[] = {
-	1, 0,
-	0, 0,
-	0, 1,
-	1, 1
-};
+void setupBuffers(unsigned int* VAO, unsigned int* VBO, unsigned int* EBO)
+{
+	glGenVertexArrays(1, VAO);
+	glGenBuffers(1, VBO);
+	glGenBuffers(1, EBO);
+}
 
 void setupVertices(unsigned int *VAO, unsigned int *VBO, unsigned int* EBO, float vertices[], int verticesSize, unsigned int indices[], int indicesSize)
 {
@@ -196,8 +173,11 @@ int main()
 	unsigned int texture;
 	LoadTexture("Resources/textures/block/dirt.png", &texture, GL_RGBA, GL_CLAMP_TO_EDGE);
 
-	unsigned int VAO;
-	setupBuffers(&VAO);
+	//unsigned int VAO;
+	//setupBuffers(&VAO);
+
+	unsigned int VAO, VBO, EBO;
+	setupBuffers(&VAO, &VBO, &EBO);
 
 	Shader* shader = new Shader(R"(Shaders\vertex1.vs)", R"(Shaders\fragment1.fs)");
 	shader->Use();
@@ -211,53 +191,62 @@ int main()
 	{
 		data[i] = 1;
 	}
-	ECS::AddComponent(e, ChunkComponent
-		{
-			0,
-			0,
-			shader,
-			texture,
-			VAO,
-			data
-		}
-	);
-	
-	/*for (int x = 0; x < 16; x++)
+	// ECS::AddComponent(e, ChunkComponent
+	// 	{
+	// 		0,
+	// 		0,
+	// 		shader,
+	// 		texture,
+	// 		VAO,
+	// 		data
+	// 	}
+	// );
+
+	ChunkComponent c
 	{
-		for (int z = 0; z < 8; z++)
+		0,
+		0,
+		shader,
+		texture,
+		new ChunkMesh
 		{
-			for (int y = 0; y < 8; y++)
-			{
-				Entity e = ECS::CreateEntity();
+			0,
+			0,
+			0,
+			VAO,
+			VBO,
+			EBO,
+			buffers.data,
+			buffers.indices
+		},
+		data
+	};
+	ECS::AddComponent(e, c);
 
-				Renderable r
-				{
-					texture,
-					VAO,
-					shader
-				};
-
-				ECS::AddComponent(e, r);
-				ECS::AddComponent(e,
-					Transform
-					{
-						(float)x,
-						(float)y,
-						(float)z,
-						0,
-						0,
-						0,
-						0,
-						0,
-						0
-					}
-				);
-			}
-		}
-		
-	}
-	*/
+	unsigned int VAO1, VBO1, EBO1;
+	setupBuffers(&VAO1, &VBO1, &EBO1);
 	
+	Entity e2 = ECS::CreateEntity();
+	ChunkComponent c2
+	{
+		16,
+		16,
+		shader,
+		texture,
+		new ChunkMesh
+		{
+			0,
+			0,
+			0,
+			VAO1,
+			VBO1,
+			EBO1,
+			buffers.data,
+			buffers.indices
+		},
+		data
+	};
+	ECS::AddComponent(e2, c2);
 	
 #pragma endregion
 

@@ -7,3 +7,5 @@ x64
 .vs/BossEngine/v16/Browse.VC.db
 *.db
 BossEngine/IncludesSheet.props
+TestProject/IncludesSheet.props
+.vs/BossEngine/v16/Browse.VC.db

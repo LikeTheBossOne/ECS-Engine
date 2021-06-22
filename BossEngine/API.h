@@ -1,7 +1,7 @@
 #pragma once
 
 #ifdef  ECS_EXPORT
-#define BOSSENGINE_API __declspec(dllexport) 
+#define BOSSENGINE_API //__declspec(dllexport) 
 #else
 #define BOSSENGINE_API
 #endif
