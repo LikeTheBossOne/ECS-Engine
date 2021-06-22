@@ -166,9 +166,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChunkRenderSystem.cpp" />
     <ClCompile Include="TestProject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChunkComponent.h" />
+    <ClInclude Include="Direction.h" />
     <ClInclude Include="load_stbi_image.h" />
     <ClInclude Include="stbi_image.h" />
   </ItemGroup>

@@ -11,16 +11,17 @@ private:
 	static GLFWwindow* _window;
 	static std::shared_ptr<Camera> _mainCamera;
 	
-	static float lastX;
-	static float lastY;
+	static float _lastX;
+	static float _lastY;
 
-	static bool firstMouse;
+	static bool _firstMouse;
+
+	static bool _wireframeMode;
 
 public:
 	static void Start()
 	{
 		SetupWindow();
-		SetupCamera();
 	}
 
 	static GLFWwindow* GetWindow()
@@ -31,6 +32,20 @@ public:
 	static std::shared_ptr<Camera> GetMainCamera()
 	{
 		return _mainCamera;
+	}
+
+	static void ToggleWireframe()
+	{
+		_wireframeMode = !_wireframeMode;
+		if (_wireframeMode)
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		}
+		else
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		}
+
 	}
 
 private:
@@ -65,15 +80,10 @@ private:
 		glfwSetScrollCallback(_window, ScrollCallback);
 
 		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_CULL_FACE);
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 
-	static void SetupCamera()
-	{
-		lastX = 0;
-		lastY = 0;
-		firstMouse = true;
-	}
 	
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	{
@@ -82,17 +92,17 @@ private:
 	
 	static void MouseMovedCallback(GLFWwindow* window, double xPos, double yPos)
 	{
-		if (firstMouse) // initially set to true
+		if (_firstMouse) // initially set to true
 		{
-			lastX = xPos;
-			lastY = yPos;
-			firstMouse = false;
+			_lastX = xPos;
+			_lastY = yPos;
+			_firstMouse = false;
 		}
 
-		float xOffset = xPos - lastX;
-		float yOffset = lastY - yPos; // Y ranges from bottom to top
-		lastX = xPos;
-		lastY = yPos;
+		float xOffset = xPos - _lastX;
+		float yOffset = _lastY - yPos; // Y ranges from bottom to top
+		_lastX = xPos;
+		_lastY = yPos;
 
 		_mainCamera->ProcessMouseMovement(xOffset, yOffset, true);
 	}
@@ -105,6 +115,7 @@ private:
 
 GLFWwindow* GraphicsManager::_window = nullptr;
 std::shared_ptr<Camera> GraphicsManager::_mainCamera = std::make_shared<Camera>(glm::vec3(0, 0, 10.f));
-float GraphicsManager::lastX = 0.0f;
-float GraphicsManager::lastY = 0.0f;
-bool GraphicsManager::firstMouse = true;
+float GraphicsManager::_lastX = 0.0f;
+float GraphicsManager::_lastY = 0.0f;
+bool GraphicsManager::_firstMouse = true;
+bool GraphicsManager::_wireframeMode = false;

@@ -16,10 +16,25 @@
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{7169968f-7ea0-4820-a6c2-367d2ac65987}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Systems">
+      <UniqueIdentifier>{6a3af8ce-ce09-4994-a59f-bab6a350e15e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems">
+      <UniqueIdentifier>{81857230-ffd0-44d4-b92e-6e2594254b35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{55295b98-1fb2-404f-ba7f-fc19a6daf8ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\enums">
+      <UniqueIdentifier>{0528178b-9d35-4309-83ef-727a22cf2db5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestProject.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkRenderSystem.cpp">
+      <Filter>Source Files\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="stbi_image.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Direction.h">
+      <Filter>Header Files\enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

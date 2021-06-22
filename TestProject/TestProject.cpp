@@ -15,18 +15,9 @@
 #include "RigidBody.h"
 #include "load_stbi_image.h"
 #include "Transform.h"
-#include "Camera.h"
+#include "ChunkComponent.h"
+#include "ChunkRenderSystem.h"
 #include "Mesh.h"
-
-enum Direction
-{
-	NORTH = 0,
-	SOUTH,
-	EAST,
-	WEST,
-	UP,
-	DOWN
-};
 
 const int FACE_INDICES[] = { 1, 0, 3, 1, 3, 2 };
 const int UNIQUE_INDICES[] = { 1, 0, 5, 2 };
@@ -149,6 +140,7 @@ int main()
     ECS::RegisterComponent<Transform>();
 	ECS::RegisterComponent<RigidBody>();
 	ECS::RegisterComponent<Renderable>();
+	//ECS::RegisterComponent<ChunkComponent>();
 
 	// Initialize Systems
 	auto physicsSystem = ECS::RegisterSystem<PhysicsSystem>();
@@ -163,6 +155,9 @@ int main()
 	auto renderSystem = ECS::RegisterSystem<RenderSystem>();
 	renderSystem->__INIT_SYSTEM();
 
+	//auto chunkRenderSystem = ECS::RegisterSystem<ChunkRenderSystem>();
+	//chunkRenderSystem->__INIT_SYSTEM();
+	
 	auto finalRenderSystem = ECS::RegisterSystem<FinalizeRenderSystem>();
 	finalRenderSystem->__INIT_SYSTEM();
 
@@ -209,12 +204,30 @@ int main()
 	shader->Use();
 	shader->UniSetInt("texture1", 0);
 
-	
-	for (int x = 0; x < 16; x++)
+	/*Entity e = ECS::CreateEntity();
+
+	unsigned int* data;
+	data = new unsigned int[CHUNK_VOLUME];
+	for (int i = 0; i < CHUNK_VOLUME; i++)
 	{
-		for (int z = 0; z < 16; z++)
+		data[i] = 1;
+	}
+	ECS::AddComponent(e, ChunkComponent
 		{
-			for (int y = 0; y < 16; y++)
+			0,
+			0,
+			shader,
+			texture,
+			VAO,
+			data
+		}
+	);*/
+	
+	/*for (int x = 0; x < 16; x++)
+	{
+		for (int z = 0; z < 8; z++)
+		{
+			for (int y = 0; y < 8; y++)
 			{
 				Entity e = ECS::CreateEntity();
 
@@ -244,19 +257,31 @@ int main()
 		}
 		
 	}
-	
+	*/
 	
 	
 #pragma endregion
 
 
 	// Game Loop
+	float wireframeCooldown = 0;
 	
 	float dt = 0.0f;
-
 	while (!glfwWindowShouldClose(GraphicsManager::GetWindow()))
 	{
 		auto startTime = std::chrono::high_resolution_clock::now();
+
+
+		if (glfwGetKey(GraphicsManager::GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		{
+			glfwSetWindowShouldClose(GraphicsManager::GetWindow(), 1);
+		}
+		if (glfwGetKey(GraphicsManager::GetWindow(), GLFW_KEY_GRAVE_ACCENT) == GLFW_PRESS && (wireframeCooldown > 0.1f))
+		{
+			wireframeCooldown = 0;
+			GraphicsManager::ToggleWireframe();
+		}
+		
 
 		// Pre-Update
 		preRenderSystem->Update(dt);
@@ -274,6 +299,12 @@ int main()
 		auto stopTime = std::chrono::high_resolution_clock::now();
 
 		dt = std::chrono::duration<float, std::chrono::seconds::period>(stopTime - startTime).count();
+		std::cout << dt * 1000 << std::endl;
+
+		if (wireframeCooldown < 10)
+		{
+			wireframeCooldown += dt;
+		}
 	}
 
 	
