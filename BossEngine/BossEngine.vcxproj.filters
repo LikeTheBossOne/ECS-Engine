@@ -37,47 +37,20 @@
     <Filter Include="Header Files\Core\Engine\ECS\Event">
       <UniqueIdentifier>{d3b25c5b-f1b4-459f-a008-7e1b6c7dd7cd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Core\Engine\Graphics">
-      <UniqueIdentifier>{b98ee210-1ff1-4b7a-8c61-097c455ccb92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Core\Engine\Graphics\Downloaded">
-      <UniqueIdentifier>{f34b4d7d-8a66-49b9-a1a5-0840131bdcd4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Core\Engine\Graphics\Enums">
-      <UniqueIdentifier>{218b644d-c2de-4e4d-9d8b-4b398f6284ac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Core\Components">
       <UniqueIdentifier>{ad55a775-b95d-429c-b3f0-f97c8584e7a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Core\Systems">
       <UniqueIdentifier>{e2affe52-b4ce-4906-9ede-ecf93875430c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\MinecraftClone">
-      <UniqueIdentifier>{c847ea3b-61e8-4993-ae52-9f466797e0df}</UniqueIdentifier>
+    <Filter Include="Header Files\Core\Graphics">
+      <UniqueIdentifier>{b98ee210-1ff1-4b7a-8c61-097c455ccb92}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\MinecraftClone\Systems">
-      <UniqueIdentifier>{247b633c-1a9f-4884-a6e1-21ed22254aa6}</UniqueIdentifier>
+    <Filter Include="Header Files\Core\Graphics\Downloaded">
+      <UniqueIdentifier>{f34b4d7d-8a66-49b9-a1a5-0840131bdcd4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\MinecraftClone\Statics">
-      <UniqueIdentifier>{fd3326dc-ea2f-4ee0-95bb-360a66cef428}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\MinecraftClone\Components">
-      <UniqueIdentifier>{77fe5206-f50b-426a-89a4-77609444bc25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\MinecraftClone\Model">
-      <UniqueIdentifier>{e63a34a3-fcf1-4c62-8126-e0ce065825ac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\MinecraftClone">
-      <UniqueIdentifier>{0b188479-1267-4331-84e1-c4106b860dbe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\MinecraftClone\Systems">
-      <UniqueIdentifier>{4ead053e-5626-4618-b3a3-e74315cc781b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\MinecraftClone\Model">
-      <UniqueIdentifier>{af40bc51-7282-4893-b1fc-f80de6871ee7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\MinecraftClone\Statics">
-      <UniqueIdentifier>{fa9f8397-1cef-4ff5-8712-70b9111315fc}</UniqueIdentifier>
+    <Filter Include="Header Files\Core\Graphics\Enums">
+      <UniqueIdentifier>{218b644d-c2de-4e4d-9d8b-4b398f6284ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -114,9 +87,6 @@
     <ClInclude Include="RigidBody.h">
       <Filter>Header Files\Core\Components</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerControlSystem.h">
-      <Filter>Header Files\Core\Systems</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicsSystem.h">
       <Filter>Header Files\Core\Systems</Filter>
     </ClInclude>
@@ -127,34 +97,22 @@
       <Filter>Header Files\Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>Header Files\Core\Engine\Graphics</Filter>
+      <Filter>Header Files\Core\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Header Files\Core\Engine\Graphics</Filter>
+      <Filter>Header Files\Core\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="load_stb_image.h">
-      <Filter>Header Files\Core\Engine\Graphics</Filter>
+      <Filter>Header Files\Core\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
-      <Filter>Header Files\Core\Engine\Graphics\Downloaded</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderSystem.h">
-      <Filter>Header Files\Core\Systems</Filter>
+      <Filter>Header Files\Core\Graphics\Downloaded</Filter>
     </ClInclude>
     <ClInclude Include="GraphicsManager.h">
-      <Filter>Header Files\Core\Engine\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="PreRenderSystem.h">
-      <Filter>Header Files\Core\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="FinalizeRenderSystem.h">
-      <Filter>Header Files\Core\Systems</Filter>
+      <Filter>Header Files\Core\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Header Files\Core\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerMovementSystem.h">
-      <Filter>Header Files\Core\Systems</Filter>
     </ClInclude>
     <ClInclude Include="ECS.h">
       <Filter>Header Files\Core\Engine\ECS</Filter>
@@ -163,22 +121,7 @@
       <Filter>Header Files\Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Enums.h">
-      <Filter>Header Files\Core\Engine\Graphics\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkMesh.h">
-      <Filter>Header Files\MinecraftClone\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>Header Files\MinecraftClone\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkComponent.h">
-      <Filter>Header Files\MinecraftClone\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderable.h">
-      <Filter>Header Files\MinecraftClone\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ChunkRenderSystem.h">
-      <Filter>Header Files\MinecraftClone\Systems</Filter>
+      <Filter>Header Files\Core\Graphics\Enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -187,10 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
-      <Filter>Header Files\Core\Engine\Graphics\Downloaded</Filter>
-    </ClCompile>
-    <ClCompile Include="TestProject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Core\Graphics\Downloaded</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

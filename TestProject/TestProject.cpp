@@ -176,14 +176,11 @@ int main()
 	//unsigned int VAO;
 	//setupBuffers(&VAO);
 
-	unsigned int VAO, VBO, EBO;
-	setupBuffers(&VAO, &VBO, &EBO);
-
 	Shader* shader = new Shader(R"(Shaders\vertex1.vs)", R"(Shaders\fragment1.fs)");
 	shader->Use();
 	shader->UniSetInt("texture1", 0);
 
-	Entity e = ECS::CreateEntity();
+	
 
 	unsigned int* data;
 	data = new unsigned int[CHUNK_VOLUME];
@@ -191,62 +188,37 @@ int main()
 	{
 		data[i] = 1;
 	}
-	// ECS::AddComponent(e, ChunkComponent
-	// 	{
-	// 		0,
-	// 		0,
-	// 		shader,
-	// 		texture,
-	// 		VAO,
-	// 		data
-	// 	}
-	// );
 
-	ChunkComponent c
+	for (int x = 0; x < 16; x++)
 	{
-		0,
-		0,
-		shader,
-		texture,
-		new ChunkMesh
+		for (int z = 0; z < 16; z++)
 		{
-			0,
-			0,
-			0,
-			VAO,
-			VBO,
-			EBO,
-			buffers.data,
-			buffers.indices
-		},
-		data
-	};
-	ECS::AddComponent(e, c);
-
-	unsigned int VAO1, VBO1, EBO1;
-	setupBuffers(&VAO1, &VBO1, &EBO1);
-	
-	Entity e2 = ECS::CreateEntity();
-	ChunkComponent c2
-	{
-		16,
-		16,
-		shader,
-		texture,
-		new ChunkMesh
-		{
-			0,
-			0,
-			0,
-			VAO1,
-			VBO1,
-			EBO1,
-			buffers.data,
-			buffers.indices
-		},
-		data
-	};
-	ECS::AddComponent(e2, c2);
+			unsigned int VAO, VBO, EBO;
+			setupBuffers(&VAO, &VBO, &EBO);
+			
+			Entity e = ECS::CreateEntity();
+			ChunkComponent c
+			{
+				x,
+				z,
+				shader,
+				texture,
+				new ChunkMesh
+				{
+					0,
+					0,
+					0,
+					VAO,
+					VBO,
+					EBO,
+					buffers.data,
+					buffers.indices
+				},
+				data
+			};
+			ECS::AddComponent(e, c);
+		}
+	}
 	
 #pragma endregion
 

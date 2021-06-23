@@ -166,8 +166,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ChunkComponent.h" />
+    <ClInclude Include="ChunkMesh.h" />
+    <ClInclude Include="ChunkRenderSystem.h" />
+    <ClInclude Include="FinalizeRenderSystem.h" />
     <ClInclude Include="load_stbi_image.h" />
+    <ClInclude Include="PlayerControlSystem.h" />
+    <ClInclude Include="PlayerMovementSystem.h" />
+    <ClInclude Include="PreRenderSystem.h" />
+    <ClInclude Include="Renderable.h" />
+    <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="stbi_image.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IncludesSheet.props" />
@@ -182,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestProject.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

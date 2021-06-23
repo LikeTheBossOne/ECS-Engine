@@ -19,6 +19,15 @@
     <Filter Include="Source Files\Systems">
       <UniqueIdentifier>{81857230-ffd0-44d4-b92e-6e2594254b35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Systems">
+      <UniqueIdentifier>{c0dc1aa9-4394-4681-afd1-beb90d116314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{0660867f-b9dd-45c8-90b3-d6205f3ed543}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{913f29a3-7ca0-44d9-87f8-2eda30f4c71b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="load_stbi_image.h">
@@ -26,6 +35,39 @@
     </ClInclude>
     <ClInclude Include="stbi_image.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkRenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="FinalizeRenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControlSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovementSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="PreRenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderable.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkMesh.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -39,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestProject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -132,7 +132,6 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalOptions>/Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,7 +150,6 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalOptions>/Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,9 +163,6 @@
     <ClInclude Include="API.h" />
     <ClInclude Include="BossEngine.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="ChunkComponent.h" />
-    <ClInclude Include="ChunkMesh.h" />
-    <ClInclude Include="ChunkRenderSystem.h" />
     <ClInclude Include="ComponentArray.h" />
     <ClInclude Include="ComponentManager.h" />
     <ClInclude Include="ECS.h" />
@@ -175,26 +170,19 @@
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventManager.h" />
-    <ClInclude Include="FinalizeRenderSystem.h" />
     <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="load_stb_image.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerControlSystem.h" />
-    <ClInclude Include="PlayerMovementSystem.h" />
-    <ClInclude Include="PreRenderSystem.h" />
-    <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="SystemManager.h" />
-    <ClInclude Include="Renderable.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Types.h" />
-    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -202,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c" />
-    <ClCompile Include="TestProject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
